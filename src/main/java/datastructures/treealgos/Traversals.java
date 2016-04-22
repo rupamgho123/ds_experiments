@@ -14,15 +14,39 @@ public class Traversals {
         this.tree = tree;
     }
 
-    public void inOrder(TreeNode treeNode){
-
+    private void inOrder(TreeNode treeNode){
+        if(treeNode != null){
+            inOrder(treeNode.left);
+            System.out.println(" "+treeNode.data+" ");
+            inOrder(treeNode.right);
+        }
     }
 
-    public void preOrder(TreeNode treeNode){
-
+    private void preOrder(TreeNode treeNode){
+        if(treeNode != null){
+            System.out.println(" "+treeNode.data+" ");
+            inOrder(treeNode.left);
+            inOrder(treeNode.right);
+        }
     }
 
-    public void postOrder(TreeNode treeNode){
+    private void postOrder(TreeNode treeNode){
+        if(treeNode != null){
+            inOrder(treeNode.left);
+            inOrder(treeNode.right);
+            System.out.println(" "+treeNode.data+" ");
+        }
+    }
 
+    public void inOrder(){
+        inOrder(tree.rootNode);
+    }
+
+    public void preOrder(){
+        preOrder(tree.rootNode);
+    }
+
+    public void postOrder(){
+        postOrder(tree.rootNode);
     }
 }
